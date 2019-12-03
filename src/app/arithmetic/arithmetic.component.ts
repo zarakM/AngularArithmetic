@@ -13,13 +13,35 @@ import * as _ from 'lodash';
 
 export class ArithmeticComponent implements OnInit {
   constructor(private http: HttpClient) { }
-  ngOnInit() {
-    let courses = this.http.get("http://localhost:54405/api/plus/4/4").forEach(data=>{
+  ngOnInit() {    
+
+    let courses = this.http.get<any>("http://localhost:54405/api/plus/10/9").subscribe(data=>{
       console.log(data)
     })
   }
 
-  getResult() {
+  add() {
+    let courses = this.http.get<any>("http://localhost:54405/api/plus/4/9").subscribe(data=>{
+      console.log(data)
+    })
+  }
+
+  subtract() {
+    let courses = this.http.get<any>("http://localhost:54405/api/minus/4/9").subscribe(data=>{
+      console.log(data)
+    })
+  }
+
+  multiply() {
+    let courses = this.http.get<any>("http://localhost:54405/api/multiply/4/9").subscribe(data=>{
+      console.log(data)
+    })
+  }
+
+  divide() {
+    let courses = this.http.get<any>("http://localhost:54405/api/divide/4/9").subscribe(data=>{
+      console.log(data)
+    })
   }
 
 }
