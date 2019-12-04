@@ -31,8 +31,8 @@ export class ArithmeticComponent implements OnInit {
       let operand_one = Number(calculation_text.slice(0, add_index))
       let operand_two = Number(calculation_text.slice(add_index + 1))
 
-     this.http.get<any>(apiUrl+"plus/"+operand_one+"/"+operand_two).subscribe(data => {
-        console.log(data)
+      this.http.get<any>(apiUrl + "plus/" + operand_one + "/" + operand_two).subscribe(data => {
+        document.getElementById("calcResult").innerHTML = data
       })
 
     }
@@ -41,8 +41,8 @@ export class ArithmeticComponent implements OnInit {
       let operand_one = Number(calculation_text.slice(0, multiply_index))
       let operand_two = Number(calculation_text.slice(multiply_index + 1))
 
-      this.http.get<any>(apiUrl+"multiply/"+operand_one+"/"+operand_two).subscribe(data => {
-        console.log(data)
+      this.http.get<any>(apiUrl + "multiply/" + operand_one + "/" + operand_two).subscribe(data => {
+        document.getElementById("calcResult").innerHTML = data
       })
     }
 
@@ -50,8 +50,8 @@ export class ArithmeticComponent implements OnInit {
       let operand_one = Number(calculation_text.slice(0, divide_index))
       let operand_two = Number(calculation_text.slice(divide_index + 1))
 
-      this.http.get<any>(apiUrl+"divide/"+operand_one+"/"+operand_two).subscribe(data => {
-        console.log(data)
+      this.http.get<any>(apiUrl + "divide/" + operand_one + "/" + operand_two).subscribe(data => {
+        document.getElementById("calcResult").innerHTML = data
       })
     }
 
@@ -59,8 +59,8 @@ export class ArithmeticComponent implements OnInit {
       let operand_one = Number(calculation_text.slice(0, minus_index))
       let operand_two = Number(calculation_text.slice(minus_index + 1))
 
-      this.http.get<any>(apiUrl+"minus/"+operand_one+"/"+operand_two).subscribe(data => {
-        console.log(data)
+      this.http.get<any>(apiUrl + "minus/" + operand_one + "/" + operand_two).subscribe(data => {
+        document.getElementById("calcResult").innerHTML = data
       })
     }
 
