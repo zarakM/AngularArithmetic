@@ -15,64 +15,53 @@ export class ArithmeticComponent implements OnInit {
   constructor(private http: HttpClient) { }
   ngOnInit() {
 
-    let courses = this.http.get<any>("http://localhost:54405/api/plus/10/9").subscribe(data => {
-      console.log(data)
-    })
-  }
-
-  add() {
-    let courses = this.http.get<any>("http://localhost:54405/api/plus/4/90").subscribe(data => {
-      console.log(data)
-    })
-  }
-
-  subtract() {
-    let courses = this.http.get<any>("http://localhost:54405/api/minus/4/9").subscribe(data => {
-      console.log(data)
-    })
-  }
-
-  multiply() {
-    let courses = this.http.get<any>("http://localhost:54405/api/multiply/4/9").subscribe(data => {
-      console.log(data)
-    })
-  }
-
-  divide() {
-    let courses = this.http.get<any>("http://localhost:54405/api/divide/4/9").subscribe(data => {
-      console.log(data)
-    })
   }
 
   result() {
+    let apiUrl = "http://localhost:54405/api/"
+
     let calculation_text = document.getElementById("calcText").innerHTML
 
-    let add_index = calculation_text.indexOf("+") 
-    let multiply_index = calculation_text.indexOf("x") 
-    let divide_index = calculation_text.indexOf("/") 
+    let add_index = calculation_text.indexOf("+")
+    let multiply_index = calculation_text.indexOf("x")
+    let divide_index = calculation_text.indexOf("/")
     let minus_index = calculation_text.indexOf("-")
 
     if (add_index > -1) {
-      let operand_one = Number(calculation_text.slice(0,add_index))
-      let operand_two = Number(calculation_text.slice(add_index+1))
+      let operand_one = Number(calculation_text.slice(0, add_index))
+      let operand_two = Number(calculation_text.slice(add_index + 1))
+
+     this.http.get<any>(apiUrl+"plus/"+operand_one+"/"+operand_two).subscribe(data => {
+        console.log(data)
+      })
 
     }
 
     if (multiply_index > -1) {
-      let operand_one = Number(calculation_text.slice(0,multiply_index))
-      let operand_two = Number(calculation_text.slice(multiply_index+1))
+      let operand_one = Number(calculation_text.slice(0, multiply_index))
+      let operand_two = Number(calculation_text.slice(multiply_index + 1))
+
+      this.http.get<any>(apiUrl+"multiply/"+operand_one+"/"+operand_two).subscribe(data => {
+        console.log(data)
+      })
     }
 
     if (divide_index > -1) {
-      let operand_one = Number(calculation_text.slice(0,divide_index))
-      let operand_two = Number(calculation_text.slice(divide_index+1))
+      let operand_one = Number(calculation_text.slice(0, divide_index))
+      let operand_two = Number(calculation_text.slice(divide_index + 1))
 
+      this.http.get<any>(apiUrl+"divide/"+operand_one+"/"+operand_two).subscribe(data => {
+        console.log(data)
+      })
     }
 
     if (minus_index > -1) {
-      let operand_one = Number(calculation_text.slice(0,minus_index))
-      let operand_two = Number(calculation_text.slice(minus_index+1))
+      let operand_one = Number(calculation_text.slice(0, minus_index))
+      let operand_two = Number(calculation_text.slice(minus_index + 1))
 
+      this.http.get<any>(apiUrl+"minus/"+operand_one+"/"+operand_two).subscribe(data => {
+        console.log(data)
+      })
     }
 
   }
@@ -110,7 +99,7 @@ export class ArithmeticComponent implements OnInit {
           }
         }
       }
-      else{
+      else {
         let last_alpha = already_text[length - 1]
         if (last_alpha === "/" || last_alpha == "-" || last_alpha == "+" || last_alpha == "x") {
           if (keys === "/" || keys == "-" || keys == "+" || keys == "x") {
