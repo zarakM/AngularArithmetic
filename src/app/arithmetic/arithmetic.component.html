@@ -1,38 +1,34 @@
 <div class="container">
   <div class="calc-body">
     <div class="calc-screen">
-      <div class="calc-operation">2536 + 419 +</div>
-      <div class="calc-typed">2955<span class="blink-me">_</span></div>
+      <div id="calcText" class="calc-operation"></div>
+      <div id="calcResult" class="calc-typed"></div>
     </div>
     <div class="calc-button-row">
-      <button class="button c">C</button>
-      <button class="button l">≠</button>
-      <button class="button l">%</button>
-      <button class="button l">/</button>
+      <div class="button-long button c" (click)="clear()">C</div>
+      <div class="button l" (click)="pressed('/')">/</div>
     </div>
     <div class="calc-button-row">
-      <div class="button">7</div>
-      <div class="button">8</div>
-      <div class="button">9</div>
-      <div class="button l">x</div>
+      <div class="button" (click)="pressed(7)">7</div>
+      <div class="button" (click)="pressed(8)">8</div>
+      <div class="button" (click)="pressed(9)">9</div>
+      <div class="button l" (click)="pressed('x')">x</div>
     </div>
     <div class="calc-button-row">
-      <div class="button">4</div>
-      <div class="button">5</div>
-      <div class="button">6</div>
-      <div class="button l">−</div>
+      <div class="button" (click)="pressed(4)">4</div>
+      <div class="button" (click)="pressed(5)">5</div>
+      <div class="button" (click)="pressed(6)">6</div>
+      <div class="button l" (click)="pressed('-')">−</div>
     </div>
     <div class="calc-button-row">
-      <div class="button">1</div>
-      <div class="button">2</div>
-      <div class="button">3</div>
-      <div class="button l">+</div>
+      <div class="button" (click)="pressed(1)">1</div>
+      <div class="button" (click)="pressed(2)">2</div>
+      <div class="button" (click)="pressed(3)">3</div>
+      <div class="button l" (click)="pressed('+')">+</div>
     </div>
     <div class="calc-button-row">
-      <div class="button">.</div>
-      <div class="button">0</div>
-      <div class="button">></div>
-      <div class="button l">=</div>
+      <div class="button button-long" (click)="pressed(0)">0</div>
+      <div class="button l" (click)="result()">=</div>
     </div>
   </div>
 </div>

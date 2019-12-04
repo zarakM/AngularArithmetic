@@ -28,6 +28,7 @@
   }
   
   .calc-operation {
+    height: 30px;
     text-align: right;
     color: #727B86;
     font-size: 21px;
@@ -47,6 +48,13 @@
     background: #3C4857;
   }
   
+  .button-long{
+    width: 72% !important;
+  }
+  .is-equal{
+    width:49% !important;
+  }
+
   .button {
     width: 25%;
     background: #425062;
