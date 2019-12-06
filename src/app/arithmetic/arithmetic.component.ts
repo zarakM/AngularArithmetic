@@ -14,7 +14,6 @@ import * as _ from 'lodash';
 export class ArithmeticComponent implements OnInit {
   constructor(private http: HttpClient) { }
   ngOnInit() {
-
   }
 
   result() {
@@ -32,7 +31,14 @@ export class ArithmeticComponent implements OnInit {
       let operand_two = Number(calculation_text.slice(add_index + 1))
 
       this.http.get<any>(apiUrl + "plus/" + operand_one + "/" + operand_two).subscribe(data => {
-        document.getElementById("calcResult").innerHTML = data
+        let result = String(data)
+        if (result.length > 9) {
+          result = result.slice(0, 9)
+          document.getElementById("calcResult").innerHTML = result
+        }
+        else{
+          document.getElementById("calcResult").innerHTML = result
+        }
       })
 
     }
@@ -42,7 +48,14 @@ export class ArithmeticComponent implements OnInit {
       let operand_two = Number(calculation_text.slice(multiply_index + 1))
 
       this.http.get<any>(apiUrl + "multiply/" + operand_one + "/" + operand_two).subscribe(data => {
-        document.getElementById("calcResult").innerHTML = data
+        let result = String(data)
+        if (result.length > 9) {
+          result = result.slice(0, 9)
+          document.getElementById("calcResult").innerHTML = result
+        }
+        else{
+          document.getElementById("calcResult").innerHTML = result
+        }
       })
     }
 
@@ -51,7 +64,14 @@ export class ArithmeticComponent implements OnInit {
       let operand_two = Number(calculation_text.slice(divide_index + 1))
 
       this.http.get<any>(apiUrl + "divide/" + operand_one + "/" + operand_two).subscribe(data => {
-        document.getElementById("calcResult").innerHTML = data
+        let result = String(data)
+        if (result.length > 9) {
+          result = result.slice(0, 9)
+          document.getElementById("calcResult").innerHTML = result
+        }
+        else{
+          document.getElementById("calcResult").innerHTML = result
+        }
       })
     }
 
@@ -60,7 +80,14 @@ export class ArithmeticComponent implements OnInit {
       let operand_two = Number(calculation_text.slice(minus_index + 1))
 
       this.http.get<any>(apiUrl + "minus/" + operand_one + "/" + operand_two).subscribe(data => {
-        document.getElementById("calcResult").innerHTML = data
+        let result = String(data)
+        if (result.length > 9) {
+          result = result.slice(0, 9)
+          document.getElementById("calcResult").innerHTML = result
+        }
+        else{
+          document.getElementById("calcResult").innerHTML = result
+        }
       })
     }
 
@@ -68,6 +95,7 @@ export class ArithmeticComponent implements OnInit {
 
   clear() {
     document.getElementById("calcText").innerHTML = ""
+    document.getElementById("calcResult").innerHTML = ""
   }
 
   pressed(key: any) {
